@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+struct workers{char name[30];int Age;int Height;int Weight;}doj;
+struct employee{
+
+    char name[40];
+    int Age;
+    int Height;
+    int Weight;
+
+    struct workers doj;
+}emp;
+
+
+int main(){
+    struct workers doj;
+    struct workers *ptr;
+    ptr=&doj;
+    doj. Age=32;
+    doj. Height=64;
+    strcpy(doj.name,"Joe Alex");
+    
+    doj .Weight=140;
+    printf("Joe Alex is at memory location %u\n",&ptr->name);
+    
+    printf("Name: %s\n  Age: %d\n  Height: %d\n  Weight: %d\n",ptr->name,ptr->Age,(*ptr).Height,(*ptr).Weight);
+
+    struct employee emp;
+    struct employee *ptr1;
+    ptr1=&emp;
+    emp. Age=20;
+    emp. Height=64;
+    strcpy(emp.name,"Frank");
+    
+    emp .Weight=180;
+    printf("Frank is at memory location %u\n",&ptr1->name);
+    
+    printf("Name: %s\n  Age: %d\n  Height: %d\n  Weight: %d\n",ptr1->name,ptr1->Age,(*ptr1).Height,(*ptr1).Weight);
+
+    ptr->Age +=20;
+    ptr->Height -=2;
+    ptr->Weight +=40;
+    printf("Name: %s\n",ptr->name);
+     printf("  Age: %d\n",ptr->Age);
+    printf("  Height: %d\n",(*ptr).Height);
+    printf("  Weight: %d\n",(*ptr).Weight);
+
+     ptr1->Age +=20;
+    ptr1->Weight +=20;
+    printf("Name: %s\n",ptr1->name);
+
+    printf("  Age: %d\n",ptr1->Age);
+    printf("  Height: %d\n",(*ptr1).Height);
+    printf("  Weight: %d\n",(*ptr1).Weight);
+free(ptr->name);
+free(ptr);
+    return 0;
+}
